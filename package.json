@@ -1,0 +1,18 @@
+{
+  "name": "clarifai-subreddit-search",
+  "version": "1.0.0",
+  "description": "Module to suggest the subreddits according to the url, contains caching too",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.1",
+    "clarifai": "^1.2.1",
+    "mongoose": "^4.5.10",
+    "request": "^2.74.0"
+  }
+}
