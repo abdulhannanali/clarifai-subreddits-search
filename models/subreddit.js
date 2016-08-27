@@ -17,6 +17,20 @@ const subredditSchema = new mongoose.Schema({
 	subreddit_raw: String
 })
 
+subredditSchema.statics.findSubreddits = function (subreddits, callback) {
+	return this.find({
+		name: {
+			$in: subreddits
+		}
+	}, callback)
+}
+
+subredditSchema.statics.findSubreddit = function (subreddit, callback) {
+	return this.findOne({
+		name: subreddit
+	}, callback)
+}
+
 subredditSchema.statics.saveSubreddit = function (rawData, rawSave, callback) {
 	let parsedRaw;
 	let subredditData;

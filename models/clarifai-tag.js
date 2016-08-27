@@ -21,7 +21,35 @@ tagSchema.statics.findSubreddits = function (tags, callback) {
 		}
 	})
 	.populate('subreddits')
-	.exec(callback)
+	.exec(function (error, results) {
+		if (error) {
+			callback(error)
+		}
+		else if (results) {
+			var remainingTags = tags.filter(function (tag) {
+				var contained = false;
+
+				results.map(function (result) {
+					if (result.tag == tag) {
+						contained = true
+					}
+				})
+
+				return contained
+			})
+
+			var tagsObject = {
+				found: results
+				notFound: remainingTags
+			}
+
+			callback(undefined, tagsObject)
+
+		}
+		else {
+			callback(error, results)
+		}
+	})
 }
 
 
