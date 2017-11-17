@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.0.1",
-    "clarifai": "^1.2.1",
+    "clarifai": "^2.5.0",
     "mongoose": "^4.5.10",
     "request": "^2.74.0"
   }
